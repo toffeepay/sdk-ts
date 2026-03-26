@@ -26,6 +26,25 @@ const session = await toffee.checkout({
 });
 
 console.log(session.url); // redirect the user here
+
+// Refund
+const refund = await toffee.refund({ paymentId: "pay_123" });
+```
+
+### Idempotency
+
+Pass an idempotency key to protect against duplicate operations:
+
+```ts
+const session = await toffee.checkout(
+  { item: { title: "Gem Pack 50", price: 100, currency: "USD" }, gameId: "game_1", userId: "user_1", returnUrl: "https://example.com/return" },
+  { idempotencyKey: "unique-key-123" },
+);
+
+const refund = await toffee.refund(
+  { paymentId: "pay_123" },
+  { idempotencyKey: "refund-key-456" },
+);
 ```
 
 ### Sandbox
