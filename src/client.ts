@@ -3,6 +3,7 @@ import { createConnectTransport } from "@connectrpc/connect-node";
 import type { Interceptor } from "@connectrpc/connect";
 import {
   PaymentService,
+  type Session,
 } from "@buf/toffeepay_toffee.bufbuild_es/pay/v1/payment_pb.js";
 import {
   RefundService,
@@ -58,7 +59,11 @@ export class Toffee {
     this.deposits = new Deposits(accountClient);
   }
 
-  async checkout(...args: Parameters<Sessions["create"]>) {
+  async checkout(...args: Parameters<Sessions["create"]>): Promise<Session> {
     return this.sessions.create(...args);
+  }
+
+  async refund(...args: Parameters<Refunds["create"]>) {
+    return this.refunds.create(...args);
   }
 }

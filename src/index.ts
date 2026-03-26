@@ -1,5 +1,6 @@
 export { Toffee } from "./client.js";
 export type { ToffeeOptions, Environment } from "./client.js";
+export type { RequestOptions } from "./types.js";
 
 export { Sessions } from "./resources/sessions.js";
 export { Payments } from "./resources/payments.js";
