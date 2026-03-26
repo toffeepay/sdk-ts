@@ -1,4 +1,4 @@
-import type { Client } from "@connectrpc/connect";
+import type { Client, CallOptions } from "@connectrpc/connect";
 import type { MessageInitShape } from "@bufbuild/protobuf";
 import type {
   PaymentService,
@@ -8,12 +8,17 @@ import type {
   CreateSessionRequestSchema,
   ListSessionsRequestSchema,
 } from "@buf/toffeepay_toffee.bufbuild_es/pay/v1/payment_pb.js";
+import type { RequestOptions } from "../types.js";
 
 export class Sessions {
   constructor(private client: Client<typeof PaymentService>) {}
 
-  async create(input: MessageInitShape<typeof CreateSessionRequestSchema>): Promise<Session> {
-    const res = await this.client.createSession(input);
+  async create(input: MessageInitShape<typeof CreateSessionRequestSchema>, options?: RequestOptions): Promise<Session> {
+    const callOptions: CallOptions = {};
+    if (options?.idempotencyKey) {
+      callOptions.headers = { "Idempotency-Key": options.idempotencyKey };
+    }
+    const res = await this.client.createSession(input, callOptions);
     return res.session!;
   }
 
