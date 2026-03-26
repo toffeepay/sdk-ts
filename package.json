@@ -34,7 +34,7 @@
   "devDependencies": {
     "@buf/toffeepay_toffee.bufbuild_es": "2.11.0-20260324204041-c34ce9a5dec1.1",
     "tsup": "^8.5.1",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.2",
     "vitest": "^4.0.18"
   },
   "license": "MIT"
