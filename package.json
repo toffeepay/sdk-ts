@@ -32,7 +32,7 @@
     "@connectrpc/connect-node": "^2.1.1"
   },
   "devDependencies": {
-    "@buf/toffeepay_toffee.bufbuild_es": "2.11.0-20260326114455-ac2523141a96.1",
+    "@buf/toffeepay_toffee.bufbuild_es": "2.11.0-20260406092330-d9a7a6306ece.1",
     "tsup": "^8.5.1",
     "typescript": "^6.0.2",
     "vitest": "^4.1.2"
