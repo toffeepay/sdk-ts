@@ -7,6 +7,7 @@ import {
 } from "@buf/toffeepay_toffee.bufbuild_es/pay/v1/payment_pb.js";
 import {
   RefundService,
+  type Refund,
 } from "@buf/toffeepay_toffee.bufbuild_es/pay/v1/refund_pb.js";
 import {
   AccountService,
@@ -60,10 +61,12 @@ export class Toffee {
   }
 
   async checkout(...args: Parameters<Sessions["create"]>): Promise<Session> {
-    return this.sessions.create(...args);
+    const res = await this.sessions.create(...args);
+    return res.session!;
   }
 
-  async refund(...args: Parameters<Refunds["create"]>) {
-    return this.refunds.create(...args);
+  async refund(...args: Parameters<Refunds["create"]>): Promise<Refund> {
+    const res = await this.refunds.create(...args);
+    return res.refund!;
   }
 }
