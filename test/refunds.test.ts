@@ -2,16 +2,16 @@ import { describe, it, expect } from "vitest";
 import { refunds } from "./setup.js";
 
 describe("refunds", () => {
-  it("create returns a refund", async () => {
-    const refund = await refunds.create({ paymentId: "pay_123" });
-    expect(refund.id).toBe("ref_123");
-    expect(refund.status).toBe("succeeded");
+  it("create returns a refund response", async () => {
+    const res = await refunds.create({ paymentId: "pay_123" });
+    expect(res.refund?.id).toBe("ref_123");
+    expect(res.refund?.status).toBe("succeeded");
   });
 
-  it("get returns a refund by id", async () => {
-    const refund = await refunds.get("ref_123");
-    expect(refund.id).toBe("ref_123");
-    expect(refund.paymentId).toBe("pay_123");
+  it("get returns a refund response", async () => {
+    const res = await refunds.get({ id: "ref_123" });
+    expect(res.refund?.id).toBe("ref_123");
+    expect(res.refund?.paymentId).toBe("pay_123");
   });
 
   it("list returns refunds", async () => {

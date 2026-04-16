@@ -16,9 +16,15 @@ export type {
   SessionMetadata,
   PaymentExtraData,
   CreateSessionRequest,
+  CreateSessionResponse,
+  GetSessionResponse,
+  GetSessionStatusResponse,
+  CancelSessionResponse,
   ListSessionsRequest,
   ListSessionsResponse,
-  GetSessionStatusResponse,
+  GetPaymentResponse,
+  CompletePaymentResponse,
+  CancelPaymentResponse,
   ListPaymentsRequest,
   ListPaymentsResponse,
 } from "@buf/toffeepay_toffee.bufbuild_es/pay/v1/payment_pb.js";
@@ -26,6 +32,8 @@ export type {
 export type {
   Refund,
   CreateRefundRequest,
+  CreateRefundResponse,
+  GetRefundResponse,
   ListRefundsRequest,
   ListRefundsResponse,
 } from "@buf/toffeepay_toffee.bufbuild_es/pay/v1/refund_pb.js";
@@ -33,8 +41,10 @@ export type {
 export type {
   Account,
   Deposit,
+  GetAccountResponse,
   ListAccountsRequest,
   ListAccountsResponse,
+  GetDepositResponse,
   ListDepositsRequest,
   ListDepositsResponse,
 } from "@buf/toffeepay_toffee.bufbuild_es/wallet/v1/account_pb.js";
