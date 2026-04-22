@@ -35,7 +35,7 @@
     "@buf/toffeepay_toffee.bufbuild_es": "2.11.0-20260415143234-e38726585b1c.1",
     "tsup": "^8.5.1",
     "typescript": "^6.0.3",
-    "vitest": "^4.1.4"
+    "vitest": "^4.1.5"
   },
   "license": "MIT"
 }
